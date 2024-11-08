@@ -7,7 +7,7 @@ from datetime import datetime
 
 class Empregado(Base.Base, Base):
     __tablename__ = "empregado"
-    nss = Column(Integer, primary_key=True)
+    nss = Column(Integer, primary_key=True, unique=True)
     pnome = Column(String, nullable=False)
     mnome = Column(String(50), unique=True,)
     snome = Column(String(50), unique=True,) 
@@ -15,5 +15,5 @@ class Empregado(Base.Base, Base):
     dataNasc = Column(datetime, nullable=False)
     salario = Column(Integer)
     endereco = Column(String(50))
-    numeroDepartamento = Column(Integer)
-    nssSupervisor = Column(Integer, ForeignKey(nss))
+    numeroDepartamento = Column(Integer, unique=True)
+    nssSupervisor = Column(Integer, ForeignKey=True(nss))

@@ -7,7 +7,7 @@ from datetime import datetime
 
 class Dependente(Base.Base, Base):
     __tablename__ = "dependente"
-    nssEmpregado = Column(Integer, ForeignKey(nss))
+    nssEmpregado = Column(Integer,unique=True,ForeignKey=True(nss))
     nome = Column(String(50))
     sexo = Column(String(15))
     dataNasc = Column(datetime)

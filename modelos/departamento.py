@@ -7,9 +7,9 @@ from datetime import datetime
 
 class Departamento(Base.Base, Base):
     __tablename__ = "departamento"
-    numero = Column(Integer,primary_key=True)
+    numeroDepart = Column(Integer,primary_key=True, unique=True)
     nome = Column(String(50),unique=True, nullable=False)
-    numeroEmpregado = Column(Integer,nullable=False)
-    nssEmpregrado = Column(Integer,ForeignKey(nss) )
+    numeroEmpregado = Column(Integer,nullable=False, unique=True)
+    nssEmpregrado = Column(Integer,ForeignKey=True(nss))
     dataInicio = Column(datetime())
 
