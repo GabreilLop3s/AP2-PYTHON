@@ -1,12 +1,18 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 from modelos.base import Base
 
 from datetime import time
 
+from projeto import Projeto
+
+from empregado import Empregado
+
+from sqlalchemy.orm import relationship
+
 
 class TrabalhaEm(Base.Base, Base):
     __tablename__ = "trabalha-em"
-    nssEmpregado = Column(Integer, ForeignKey=True(nss))
-    numeroProjeto = Column(Integer, ForeignKey=True(numeroprojeto))
-    horas = Column (time(%h:%m:%s))
+    nssEmpregado = Column(Integer, ForeignKey("nss"))
+    numeroProjeto = Column(Integer, ForeignKey("numero_projeto"))
+    horas = Column (time())
