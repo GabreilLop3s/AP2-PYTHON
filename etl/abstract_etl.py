@@ -5,8 +5,8 @@ class AbstractETL(ABC):
     def __init__(self, origem: str, destino: str):
         self.origem = origem
         self.destino = destino
-        self._dados_extraidos = None
-        self._dados_transformados = None
+        self.__dados_extraidos = None
+        self.__dados_transformados = None
 
     @abstractmethod
     def extract(self):

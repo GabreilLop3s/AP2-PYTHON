@@ -1,12 +1,11 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, FLOAT, DateTime
 
 from modelos.base import Base
 
-from datetime import datetime
+from sqlalchemy.orm import relationship
 
 from departamento import Departamento
 
-from sqlalchemy.orm import relationship
 
 class Empregado(Base.Base, Base):
     __tablename__ = "empregado"
@@ -15,8 +14,8 @@ class Empregado(Base.Base, Base):
     mnome = Column(String(50), unique=True,nullable=False)
     snome = Column(String(50), unique=True,nullable=False) 
     sexo = Column(String(15),nullable=False, nullable=False)
-    dataNasc = Column(datetime, nullable=False)
-    salario = Column(float, nullable=False)
+    dataNasc = Column(DateTime, nullable=False)
+    salario = Column(FLOAT, nullable=False)
     endereco = Column(String(50))
-    numeroDepartamento = Column(Integer, ForeignKey("numero_depart"),unique=True)
+    numeroDepartamento = Column(Integer, ForeignKey('Departamento.numeroDepart'),unique=True)
     nssSupervisor = Column(Integer, ForeignKey(nss))
